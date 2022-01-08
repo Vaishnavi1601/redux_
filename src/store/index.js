@@ -20,8 +20,8 @@ const counterReducer = (state = {counter:0}, action) =>{
   // if  neither action is done return the unchanged state
   return state;
 }
+
 //calling createStore and storing it in a constant store
 //this now creates our redux store
 const store = createStore(counterReducer);
-
 export default store;
