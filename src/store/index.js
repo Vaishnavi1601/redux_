@@ -3,7 +3,7 @@
 //importing createstore function
 import { createStore} from 'redux'; 
 
-//counterReducer gets "existing state as first argument", and action that was dispatched as the second argument
+//counterReduce r gets "existing state as first argument", and action that was dispatched as the second argument
 //default value is given to state
 const counterReducer = (state = {counter:0}, action) =>{
   if(action.type === 'increment') {
