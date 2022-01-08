@@ -1,24 +1,27 @@
 import { useSelector,useDispatch } from "react-redux";
 //useSelector allows us to then automatically select a part of our state managed by the store
+import { counterActions } from "../store/counter";
+
 import classes from "./Counter.module.css";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter); //a function which determines which piece of data we want to extract from our store
-  const show = useSelector((state) => state.showCounter); //a function which determines which piece of data we want to extract from our store
+  const counter = useSelector((state) => state.counter.counter); //a function which determines which piece of data we want to extract from our store
+  const show = useSelector((state) => state.counter.showCounter); //a function which determines which piece of data we want to extract from our store
 
   const incrementHandler = () => {
-    dispatch({ type: "increment" });
+    dispatch(counterActions.increment());
   };
   const increaseHandler = () => {
-    dispatch({ type: "increase", amount: 10 });
+    dispatch(counterActions.increase(10));
   };
   const decrementHandler = () => {
-    dispatch({ type: "decrement" });
-  };
+    dispatch(counterActions.decrement());
+  }; 
 
   const toggleCounterHandler = () => {
-    dispatch({type: 'toggle'});
+    dispatch(counterActions.toggleCounter());
+
   };
 
   return (
